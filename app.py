@@ -2,7 +2,7 @@ import streamlit as st
 import pandas as pd
 import matplotlib.pyplot as plt
 
-data = pd.read_csv('data/fake_data_clean.csv')
+data_clean = pd.read_csv('data/fake_data_clean.csv')
 
 #%% APP
 st.set_page_config(
@@ -17,8 +17,8 @@ tab1, tab2, tab3, tab4 = st.tabs(["Data Conversion", "Data Visualization", "Summ
 
 #%% TAB 1: Data Conversion
 with tab1:
-    data_conv = (data[['EmployeeID','RegularHours','OvertimeHours']]
-             .rename(columns={'EmployeeID':'Key','RegularHours':'E_Hourly Regular_Hours','OvertimeHours':'E_Overtime_Hours'}))
+    data_conv = (data_clean[['EmployeeID','RegularHours','OvertimeHours']]
+                 .rename(columns={'EmployeeID':'Key','RegularHours':'E_Hourly Regular_Hours','OvertimeHours':'E_Overtime_Hours'}))
     
     st.dataframe(data_conv)
 
@@ -29,7 +29,7 @@ with tab2:
 
     with col1:
         data_viz = (
-            data
+            data_clean
             .groupby(['EndDate'])
             .agg({'TotalHours':'mean', 'OvertimeHours':'mean',})
             .reset_index()
@@ -61,84 +61,82 @@ with tab2:
         st.pyplot(plt1.figure)
 
     with col2:
-        st.empty()
-
-
-#%% TAB 3: Summary Statistics
-with tab3:
-    data_stats = (
-        data
-        .groupby(['Store'])
-        .agg({'EmployeeName':'count',
-            'RegularHours':'sum',
-            'OvertimeHours':'sum',
-            'TotalHours':'sum',
-            'RegPay':'sum',
-            'OverPay':'sum',
-            'TotalPay':'sum',
-            })
-    )
-
-    data_stats_hours = (
-        data_stats[['EmployeeName','RegularHours','OvertimeHours','TotalHours']]
-        .assign(ot_per = 100*round(data_stats.OvertimeHours / data_stats.TotalHours, 3))
-        .rename(columns={'EmployeeName':'# Employees',
-                        'RegularHours':'Total Reg Hours',
-                        'OvertimeHours':'Total OT Hours',
-                        'TotalHours':'Total Hours',
-                        'ot_per':'% OT Hours'
-                        })
-    )
-
-    data_stats_pay = (
-        data_stats[['EmployeeName','RegPay','OverPay','TotalPay']]
-        .assign(ot_per = 100*round(data_stats.OverPay / data_stats.TotalPay, 3))
-        .rename(columns={'EmployeeName':'# Employees',
-                        'RegPay':'Total Reg Pay',
-                        'OverPay':'Total OT Pay',
-                        'TotalPay':'Total Pay',
-                        'ot_per':'% OT Pay'
-                        })
-    )
-
-    st.write('Total Hours per Pay Period')
-    st.dataframe(data_stats_hours)
-    st.write('Total Pay per Pay Period')
-    st.dataframe(data_stats_pay)
-
-
-
-
-#%% TAB 3: Anomalies
-with tab4:
-    anomalies = (
-            data
+        anomalies = (
+            data_clean
             .groupby(['Store','Description'])
             .agg({'EmployeeName':'count'})
             .reset_index()
             # .rename(columns={'EmployeeName'})
         )
 
-    # Unique categories
-    categories = anomalies['Description'].unique()
-    stores = anomalies['Store'].unique()
-    colors = {'Store A': 'lightblue', 'Store B': 'green', 'Store C': 'purple', 'Store D': 'darkblue', 'Store E': 'pink', 'Store F': 'orange', 'Store G': 'indigo'}
+        # Unique categories
+        categories = anomalies['Description'].unique()
+        stores = anomalies['Store'].unique()
+        colors = {'Store A': 'lightblue', 'Store B': 'green', 'Store C': 'purple', 'Store D': 'darkblue', 'Store E': 'pink', 'Store F': 'orange', 'Store G': 'indigo'}
 
-    # Create a figure and axes
-    fig, axs = plt.subplots(ncols=4, figsize=(12,4))
-    # axs = axs.flatten()
+        # Create a figure and axes
+        fig, axs = plt.subplots(nrows=2 ,ncols=2, figsize=(6,6))
+        axs = axs.flatten()
 
-    # Iterate over each category and create a plot
-    for ax, category in zip(axs, categories):
-        # Select Employee type and fill in 0s if a store does not have any of that employee type
-        sub_df = (anomalies[anomalies['Description'] == category]
-                .set_index('Store').reindex(stores).fillna(value={'EmployeeName':0}).ffill().reset_index())
-        # Create sublplot
-        sub_df.plot(x='Store', y='EmployeeName', kind='bar', ax=ax, title=category, 
-                    color=[colors[x] for x in sub_df['Store']],ylim=(0,10),legend=False,xlabel='')
+        # Iterate over each category and create a plot
+        for ax, category in zip(axs, categories):
+            # Select Employee type and fill in 0s if a store does not have any of that employee type
+            sub_df = (anomalies[anomalies['Description'] == category]
+                    .set_index('Store').reindex(stores).fillna(value={'EmployeeName':0}).ffill().reset_index())
+            # Create sublplot
+            sub_df.plot(x='Store', y='EmployeeName', kind='bar', ax=ax, title=category, 
+                        color=[colors[x] for x in sub_df['Store']],ylim=(0,10),legend=False,xlabel='')
+        
+        plt.suptitle('Number of Employees per Position per Store')
+        plt.tight_layout()
+
+        st.pyplot(fig)
+
+
+#%% TAB 3: Summary Statistics
+with tab3:
+    col1,col2 = st.columns([1.25,2],gap='small')
     
-    plt.suptitle('Number of Employees per Position per Store')
-    plt.tight_layout()
+    data_stats = (
+        data_clean
+        .drop(columns=['EmployeeID','TimeCard','EmployeeName','EmployeeExtRef','ShortDescription','ExternalReference','RegPay','OverPay','TotalPay'])
+    )
 
-    st.pyplot(fig)
+    with col1:
+        st.write('Summary Statistics')
+        st.dataframe(data_stats[data_stats.columns[[str(x)!='object' for x in data_stats.dtypes]]].describe().round(2))
+
+    with col2:
+        st.write('Categorical Frequencies')
+        st.dataframe(data_stats[data_stats.columns[[str(x)=='object' for x in data_stats.dtypes]]].describe())
+
+
+#%% TAB 4: Anomalies
+with tab4:
+    # col1, col2 = st.columns([3,3])
+    data_stats2 = data_clean.drop(columns=['TimeCard','EmployeeName','EmployeeExtRef','ShortDescription','ExternalReference','RegPay','OverPay','TotalPay'])
+    
+    # with col1:
+    st.write('Pay Periods Worked for Employees with Missing Break Time')
+    st.dataframe((data_stats2[data_stats2.BreakTime.isna() & (data_stats2.RateTimeFrame!='Monthly')]
+                  [['EmployeeID','Store','Description','Minor','RateType','RateTimeFrame',
+                    'BeginDate','EndDate','RegularHours','OvertimeHours','TotalHours','BreakTime']]))
+
+    # with col2:
+    if any(data_clean.groupby(['EmployeeID']).Store.count() < len(data_clean[['BeginDate','EndDate']].drop_duplicates())):
+        missing_weeks_emps = (
+            data_clean.groupby(['EmployeeID']).Store.count()
+            [data_clean.groupby(['EmployeeID']).Store.count() < len(data_clean[['BeginDate','EndDate']].drop_duplicates())]
+            .reset_index()['EmployeeID'].values
+        )
+        
+        st.write('Pay Periods Worked for Employees with Missing Pay Periods')
+        st.dataframe((data_stats2[data_stats2['EmployeeID'].isin(missing_weeks_emps)]
+                      [['EmployeeID','Store','Description','Minor','RateType','RateTimeFrame',
+                        'BeginDate','EndDate','RegularHours','OvertimeHours','TotalHours']]))
+    else:
+        st.empty()
+        
+
+    
 
