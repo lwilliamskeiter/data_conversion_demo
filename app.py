@@ -2,7 +2,7 @@ import streamlit as st
 import pandas as pd
 import matplotlib.pyplot as plt
 
-data = pd.read_csv('data_conversion_demo/data/fake_data_clean.csv')
+data = pd.read_csv('data/fake_data_clean.csv')
 
 #%% APP
 st.set_page_config(
