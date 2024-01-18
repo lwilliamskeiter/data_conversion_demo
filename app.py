@@ -20,7 +20,7 @@ with tab1:
     data_conv = (data_clean[['EmployeeID','RegularHours','OvertimeHours']]
                  .rename(columns={'EmployeeID':'Key','RegularHours':'E_Hourly Regular_Hours','OvertimeHours':'E_Overtime_Hours'}))
     
-    st.dataframe(data_conv)
+    st.dataframe(data_conv,hide_index=True)
 
 
 #%% TAB 2: Data Visualization
@@ -76,7 +76,7 @@ with tab2:
         colors = {'Store A': 'lightblue', 'Store B': 'green', 'Store C': 'purple', 'Store D': 'darkblue', 'Store E': 'pink', 'Store F': 'orange', 'Store G': 'indigo'}
 
         # Create a figure and axes
-        fig, axs = plt.subplots(nrows=2 ,ncols=2, figsize=(6.4,4.8))
+        fig, axs = plt.subplots(nrows=2 ,ncols=2, sharex=True, sharey=True)
         axs = axs.flatten()
 
         # Iterate over each category and create a plot
@@ -122,7 +122,8 @@ with tab4:
     st.write('Pay Periods Worked for Employees with Missing Break Time')
     st.dataframe((data_stats2[data_stats2.BreakTime.isna() & (data_stats2.RateTimeFrame!='Monthly')]
                   [['EmployeeID','Store','Description','Minor','RateType','RateTimeFrame',
-                    'BeginDate','EndDate','RegularHours','OvertimeHours','TotalHours','BreakTime']]))
+                    'BeginDate','EndDate','RegularHours','OvertimeHours','TotalHours','BreakTime']]),
+                    hide_index=True)
 
     # with col2:
     if any(data_clean.groupby(['EmployeeID']).Store.count() < len(data_clean[['BeginDate','EndDate']].drop_duplicates())):
@@ -135,7 +136,8 @@ with tab4:
         st.write('Pay Periods Worked for Employees with Missing Pay Periods')
         st.dataframe((data_stats2[data_stats2['EmployeeID'].isin(missing_weeks_emps)]
                       [['EmployeeID','Store','Description','Minor','RateType','RateTimeFrame',
-                        'BeginDate','EndDate','RegularHours','OvertimeHours','TotalHours']]))
+                        'BeginDate','EndDate','RegularHours','OvertimeHours','TotalHours']]),
+                        hide_index=True)
     else:
         st.empty()
         
