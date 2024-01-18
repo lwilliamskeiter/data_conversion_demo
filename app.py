@@ -58,7 +58,8 @@ with tab2:
             # Add label to bar
             plt1.bar_label(x, labels=labels, label_type='center')
         
-        st.pyplot(plt1.figure)
+        with st.container(border=True):
+            st.pyplot(plt1.figure)
 
     with col2:
         anomalies = (
@@ -75,7 +76,7 @@ with tab2:
         colors = {'Store A': 'lightblue', 'Store B': 'green', 'Store C': 'purple', 'Store D': 'darkblue', 'Store E': 'pink', 'Store F': 'orange', 'Store G': 'indigo'}
 
         # Create a figure and axes
-        fig, axs = plt.subplots(nrows=2 ,ncols=2, figsize=(6,6))
+        fig, axs = plt.subplots(nrows=2 ,ncols=2, figsize=(6.4,4.8))
         axs = axs.flatten()
 
         # Iterate over each category and create a plot
@@ -90,12 +91,13 @@ with tab2:
         plt.suptitle('Number of Employees per Position per Store')
         plt.tight_layout()
 
-        st.pyplot(fig)
+        with st.container(border=True):
+            st.pyplot(fig)
 
 
 #%% TAB 3: Summary Statistics
 with tab3:
-    col1,col2 = st.columns([1.25,2],gap='small')
+    col1,col2 = st.columns([1.5,2],gap='small')
     
     data_stats = (
         data_clean
