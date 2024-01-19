@@ -43,7 +43,8 @@ with tab2:
             stacked=True,
             xlabel='Pay Period End',
             ylabel='Average Pay Period Hours',
-            rot=0
+            rot=0,
+            figsize=(6.4,4.8)
         )
         # Move legend outside plot
         plt.legend(bbox_to_anchor=(1.02, 1), loc='upper left', borderaxespad=0)
@@ -58,7 +59,7 @@ with tab2:
             # Add label to bar
             plt1.bar_label(x, labels=labels, label_type='center')
         
-        with st.container(border=True):
+        with st.container(border=True,height=550):
             st.pyplot(plt1.figure)
 
     with col2:
@@ -76,7 +77,7 @@ with tab2:
         colors = {'Store A': 'lightblue', 'Store B': 'green', 'Store C': 'purple', 'Store D': 'darkblue', 'Store E': 'pink', 'Store F': 'orange', 'Store G': 'indigo'}
 
         # Create a figure and axes
-        fig, axs = plt.subplots(nrows=2 ,ncols=2, sharex=True, sharey=True)
+        fig, axs = plt.subplots(nrows=2 ,ncols=2, sharex=True, sharey=True, figsize=(6.4,4.8))
         axs = axs.flatten()
 
         # Iterate over each category and create a plot
@@ -91,7 +92,7 @@ with tab2:
         plt.suptitle('Number of Employees per Position per Store')
         plt.tight_layout()
 
-        with st.container(border=True):
+        with st.container(border=True,height=550):
             st.pyplot(fig)
 
 
