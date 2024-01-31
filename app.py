@@ -2,7 +2,7 @@ import streamlit as st
 import pandas as pd
 import matplotlib.pyplot as plt
 
-data_clean = pd.read_csv('data/fake_data_clean.csv')
+data_clean = pd.read_csv('data/fake_data_clean2.csv')
 
 #%% APP
 st.set_page_config(
@@ -102,7 +102,7 @@ with tab3:
     
     data_stats = (
         data_clean
-        .drop(columns=['EmployeeID','TimeCard','EmployeeName','EmployeeExtRef','ShortDescription','ExternalReference','RegPay','OverPay','TotalPay'])
+        .drop(columns=['EmployeeID','TimeCard','EmployeeName','EmployeeExtRef','ShortDescription','ExternalReference'])
     )
 
     with col1:
@@ -117,11 +117,12 @@ with tab3:
 #%% TAB 4: Anomalies
 with tab4:
     # col1, col2 = st.columns([3,3])
-    data_stats2 = data_clean.drop(columns=['TimeCard','EmployeeName','EmployeeExtRef','ShortDescription','ExternalReference','RegPay','OverPay','TotalPay'])
+    data_stats2 = data_clean.drop(
+        columns=['TimeCard','EmployeeName','EmployeeExtRef','ShortDescription','ExternalReference'])
     
     # with col1:
     st.write('Pay Periods Worked for Employees with Missing Break Time')
-    st.dataframe((data_stats2[data_stats2.BreakTime.isna() & (data_stats2.RateTimeFrame!='Monthly')]
+    st.dataframe((data_stats2[data_stats2.BreakTime.isna() & (data_stats2.RateTimeFrame!='Salary')]
                   [['EmployeeID','Store','Description','Minor','RateType','RateTimeFrame',
                     'BeginDate','EndDate','RegularHours','OvertimeHours','TotalHours','BreakTime']]),
                     hide_index=True)

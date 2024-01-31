@@ -1,0 +1,80 @@
+"Store","EmployeeID","TimeCard","EmployeeName","EmployeeExtRef","Description","ShortDescription","ExternalReference","Minor","PayRate","RateType","RateTimeFrame","RegularHours","OvertimeHours","TotalHours","BreakTime","BeginDate","EndDate"
+"Store A",101,12345,"John Doe","JD001","Cashier","Part-time Cashier","EXTR-001","No",10,"Hourly","Hourly",61,11,72,0.5,2023-01-01,2023-01-16
+"Store A",101,12345,"John Doe","JD001","Cashier","Part-time Cashier","EXTR-001","No",10,"Hourly","Hourly",64,8,72,0.5,2023-01-16,2023-01-31
+"Store A",101,12345,"John Doe","JD001","Cashier","Part-time Cashier","EXTR-001","No",10,"Hourly","Hourly",56,16,72,0.5,2023-02-01,2023-02-16
+"Store A",102,12346,"Jane Smith","JS001","Sales Associate","PT Sales","EXTR-002","No",12,"Hourly","Hourly",64,8,72,0.5,2023-01-01,2023-01-16
+"Store A",102,12346,"Jane Smith","JS001","Sales Associate","PT Sales","EXTR-002","No",12,"Hourly","Hourly",67,5,72,0.5,2023-01-16,2023-01-31
+"Store A",102,12346,"Jane Smith","JS001","Sales Associate","PT Sales","EXTR-002","No",12,"Hourly","Hourly",58,14,72,0.5,2023-02-01,2023-02-16
+"Store A",103,12347,"Mark Johnson","MJ002","Stock Clerk","Part-time Stock Clerk","EXTR-003","No",9,"Hourly","Hourly",58,14,72,0.5,2023-01-01,2023-01-16
+"Store A",103,12347,"Mark Johnson","MJ002","Stock Clerk","Part-time Stock Clerk","EXTR-003","No",9,"Hourly","Hourly",57,17,74,0.5,2023-01-16,2023-01-31
+"Store A",103,12347,"Mark Johnson","MJ002","Stock Clerk","Part-time Stock Clerk","EXTR-003","No",9,"Hourly","Hourly",55,19,74,0.5,2023-02-01,2023-02-16
+"Store A",104,12348,"Lisa Anderson","LA001","Manager","Store Manager","EXTR-004","No",20,"Salary","Salary",80,0,80,NA,2023-01-01,2023-01-16
+"Store A",104,12348,"Lisa Anderson","LA001","Manager","Store Manager","EXTR-004","No",20,"Salary","Salary",80,0,80,NA,2023-02-01,2023-02-16
+"Store A",104,12348,"Lisa Anderson","LA001","Manager","Store Manager","EXTR-004","No",20,"Salary","Salary",80,0,80,NA,2023-01-16,2023-01-31
+"Store A",105,12349,"Sarah Davis","SD001","Cashier","Part-time Cashier","EXTR-005","Yes",11,"Hourly","Hourly",50,14,64,0.5,2023-01-01,2023-01-16
+"Store A",105,12349,"Sarah Davis","SD001","Cashier","Part-time Cashier","EXTR-005","Yes",11,"Hourly","Hourly",59,13,72,0.5,2023-01-16,2023-01-31
+"Store A",105,12349,"Sarah Davis","SD001","Cashier","Part-time Cashier","EXTR-005","Yes",11,"Hourly","Hourly",56,16,72,0.5,2023-02-01,2023-02-16
+"Store B",201,12350,"Michael Johnson","MJ003","Manager","Store Manager","EXTR-006","No",20,"Salary","Salary",80,0,80,NA,2023-01-01,2023-01-16
+"Store B",201,12350,"Michael Johnson","MJ003","Manager","Store Manager","EXTR-006","No",20,"Salary","Salary",80,0,80,NA,2023-02-01,2023-02-16
+"Store B",201,12350,"Michael Johnson","MJ003","Manager","Store Manager","EXTR-006","No",20,"Salary","Salary",80,0,80,NA,2023-01-16,2023-01-31
+"Store B",202,12351,"Emma Wilson","EW001","Cashier","Part-time Cashier","EXTR-007","No",11,"Hourly","Hourly",50,14,64,0.5,2023-01-01,2023-01-16
+"Store B",202,12351,"Emma Wilson","EW001","Cashier","Part-time Cashier","EXTR-007","No",11,"Hourly","Hourly",59,13,72,0.5,2023-01-16,2023-01-31
+"Store B",202,12351,"Emma Wilson","EW001","Cashier","Part-time Cashier","EXTR-007","No",11,"Hourly","Hourly",56,16,72,0.5,2023-02-01,2023-02-16
+"Store B",203,12352,"James Smith","JS002","Sales Associate","PT Sales","EXTR-008","No",12,"Hourly","Hourly",59,13,72,0.5,2023-01-01,2023-01-16
+"Store B",203,12352,"James Smith","JS002","Sales Associate","PT Sales","EXTR-008","No",12,"Hourly","Hourly",62,10,72,0.5,2023-01-16,2023-01-31
+"Store B",203,12352,"James Smith","JS002","Sales Associate","PT Sales","EXTR-008","No",12,"Hourly","Hourly",60,12,72,0.5,2023-02-01,2023-02-16
+"Store C",301,12353,"David Brown","DB001","Sales Associate","PT Sales","EXTR-005","No",12,"Hourly","Hourly",59,13,72,0.5,2023-01-01,2023-01-16
+"Store C",301,12353,"David Brown","DB001","Sales Associate","PT Sales","EXTR-005","No",12,"Hourly","Hourly",62,10,72,0.5,2023-01-16,2023-01-31
+"Store C",301,12353,"David Brown","DB001","Sales Associate","PT Sales","EXTR-005","No",12,"Hourly","Hourly",60,12,72,0.5,2023-02-01,2023-02-16
+"Store C",302,12354,"Emily White","EW001","Cashier","Part-time Cashier","EXTR-006","No",10,"Hourly","Hourly",60,12,72,0.5,2023-01-01,2023-01-16
+"Store C",302,12354,"Emily White","EW001","Cashier","Part-time Cashier","EXTR-006","No",10,"Hourly","Hourly",62,10,72,0.5,2023-01-16,2023-01-31
+"Store C",302,12354,"Emily White","EW001","Cashier","Part-time Cashier","EXTR-006","No",10,"Hourly","Hourly",57,15,72,0.5,2023-02-01,2023-02-16
+"Store D",401,12355,"Maria Rodriguez","MR001","Cashier","Part-time Cashier","EXTR-009","No",11,"Hourly","Hourly",51,13,64,0.5,2023-01-01,2023-01-16
+"Store D",401,12355,"Maria Rodriguez","MR001","Cashier","Part-time Cashier","EXTR-009","No",11,"Hourly","Hourly",60,4,64,0.5,2023-01-16,2023-01-31
+"Store D",401,12355,"Maria Rodriguez","MR001","Cashier","Part-time Cashier","EXTR-009","No",11,"Hourly","Hourly",56,8,64,0.5,2023-02-01,2023-02-16
+"Store D",402,12356,"Ahmed Ali","AA001","Sales Associate","PT Sales","EXTR-010","No",12.5,"Hourly","Hourly",64,8,72,0.5,2023-01-01,2023-01-16
+"Store D",402,12356,"Ahmed Ali","AA001","Sales Associate","PT Sales","EXTR-010","No",12.5,"Hourly","Hourly",63,9,72,0.5,2023-01-16,2023-01-31
+"Store D",402,12356,"Ahmed Ali","AA001","Sales Associate","PT Sales","EXTR-010","No",12.5,"Hourly","Hourly",58,14,72,0.5,2023-02-01,2023-02-16
+"Store D",403,12357,"Sophie Kim","SK001","Cashier","Part-time Cashier","EXTR-011","No",10.5,"Hourly","Hourly",60,4,64,0.5,2023-01-01,2023-01-16
+"Store D",403,12357,"Sophie Kim","SK001","Cashier","Part-time Cashier","EXTR-011","No",10.5,"Hourly","Hourly",59,5,64,0.5,2023-01-16,2023-01-31
+"Store D",403,12357,"Sophie Kim","SK001","Cashier","Part-time Cashier","EXTR-011","No",10.5,"Hourly","Hourly",62,2,64,0.5,2023-02-01,2023-02-16
+"Store D",404,12358,"Carlos Martinez","CM001","Manager","Store Manager","EXTR-012","No",21,"Salary","Salary",80,0,80,NA,2023-01-16,2023-01-31
+"Store D",405,12359,"Aisha Rahman","AR001","Cashier","Part-time Cashier","EXTR-013","No",11,"Hourly","Hourly",57,7,64,0.5,2023-01-01,2023-01-16
+"Store D",405,12359,"Aisha Rahman","AR001","Cashier","Part-time Cashier","EXTR-013","No",11,"Hourly","Hourly",54,10,64,0.5,2023-01-16,2023-01-31
+"Store D",405,12359,"Aisha Rahman","AR001","Cashier","Part-time Cashier","EXTR-013","No",11,"Hourly","Hourly",59,5,64,0.5,2023-02-01,2023-02-16
+"Store E",501,12360,"Mohammed Khan","MK001","Stock Clerk","Part-time Stock Clerk","EXTR-014","No",10,"Hourly","Hourly",61,3,64,0.5,2023-01-01,2023-01-16
+"Store E",501,12360,"Mohammed Khan","MK001","Stock Clerk","Part-time Stock Clerk","EXTR-014","No",10,"Hourly","Hourly",62,2,64,0.5,2023-01-16,2023-01-31
+"Store E",501,12360,"Mohammed Khan","MK001","Stock Clerk","Part-time Stock Clerk","EXTR-014","No",10,"Hourly","Hourly",59,5,64,0.5,2023-02-01,2023-02-16
+"Store E",502,12361,"Isabella Lopez","IL001","Cashier","Part-time Cashier","EXTR-015","No",11,"Hourly","Hourly",56,8,64,0.5,2023-01-01,2023-01-16
+"Store E",502,12361,"Isabella Lopez","IL001","Cashier","Part-time Cashier","EXTR-015","No",11,"Hourly","Hourly",58,6,64,0.5,2023-01-16,2023-01-31
+"Store E",502,12361,"Isabella Lopez","IL001","Cashier","Part-time Cashier","EXTR-015","No",11,"Hourly","Hourly",61,3,64,0.5,2023-02-01,2023-02-16
+"Store E",503,12362,"Ethan Davis","ED001","Sales Associate","PT Sales","EXTR-016","No",12.5,"Hourly","Hourly",64,8,72,0.5,2023-01-01,2023-01-16
+"Store E",503,12362,"Ethan Davis","ED001","Sales Associate","PT Sales","EXTR-016","No",12.5,"Hourly","Hourly",63,9,72,0.5,2023-01-16,2023-01-31
+"Store E",503,12362,"Ethan Davis","ED001","Sales Associate","PT Sales","EXTR-016","No",12.5,"Hourly","Hourly",58,14,72,0.5,2023-02-01,2023-02-16
+"Store E",504,12363,"Sofia Martinez","SM001","Cashier","Part-time Cashier","EXTR-017","No",10.5,"Hourly","Hourly",62,2,64,0.5,2023-01-01,2023-01-16
+"Store E",504,12363,"Sofia Martinez","SM001","Cashier","Part-time Cashier","EXTR-017","No",10.5,"Hourly","Hourly",61,3,64,0.5,2023-01-16,2023-01-31
+"Store E",504,12363,"Sofia Martinez","SM001","Cashier","Part-time Cashier","EXTR-017","No",10.5,"Hourly","Hourly",58,6,64,0.5,2023-02-01,2023-02-16
+"Store E",505,12364,"William Johnson","WJ001","Manager","Store Manager","EXTR-018","No",21,"Salary","Salary",80,0,80,NA,2023-01-01,2023-01-16
+"Store E",505,12364,"William Johnson","WJ001","Manager","Store Manager","EXTR-018","No",21,"Salary","Salary",80,0,80,NA,2023-02-01,2023-02-16
+"Store E",505,12364,"William Johnson","WJ001","Manager","Store Manager","EXTR-018","No",21,"Salary","Salary",80,0,80,NA,2023-01-16,2023-01-31
+"Store F",601,12365,"Liam Smith","LS001","Cashier","Part-time Cashier","EXTR-019","No",11,"Hourly","Hourly",57,7,64,0.5,2023-01-01,2023-01-16
+"Store F",601,12365,"Liam Smith","LS001","Cashier","Part-time Cashier","EXTR-019","No",11,"Hourly","Hourly",60,4,64,0.5,2023-01-16,2023-01-31
+"Store F",601,12365,"Liam Smith","LS001","Cashier","Part-time Cashier","EXTR-019","No",11,"Hourly","Hourly",58,6,64,0.5,2023-02-01,2023-02-16
+"Store F",602,12366,"Olivia Brown","OB001","Sales Associate","PT Sales","EXTR-020","No",12.5,"Hourly","Hourly",64,8,72,0.5,2023-01-01,2023-01-16
+"Store F",602,12366,"Olivia Brown","OB001","Sales Associate","PT Sales","EXTR-020","No",12.5,"Hourly","Hourly",63,9,72,0.5,2023-01-16,2023-01-31
+"Store F",602,12366,"Olivia Brown","OB001","Sales Associate","PT Sales","EXTR-020","No",12.5,"Hourly","Hourly",58,14,72,0.5,2023-02-01,2023-02-16
+"Store F",603,12367,"Noah Johnson","NJ001","Stock Clerk","Part-time Stock Clerk","EXTR-021","No",9,"Hourly","Hourly",58,14,72,0.5,2023-01-01,2023-01-16
+"Store F",603,12367,"Noah Johnson","NJ001","Stock Clerk","Part-time Stock Clerk","EXTR-021","No",9,"Hourly","Hourly",57,15,72,0.5,2023-01-16,2023-01-31
+"Store F",603,12367,"Noah Johnson","NJ001","Stock Clerk","Part-time Stock Clerk","EXTR-021","No",9,"Hourly","Hourly",55,17,72,0.5,2023-02-01,2023-02-16
+"Store F",604,12368,"Emma Davis","ED002","Manager","Store Manager","EXTR-022","No",21,"Salary","Salary",80,0,80,NA,2023-01-01,2023-01-16
+"Store F",604,12368,"Emma Davis","ED002","Manager","Store Manager","EXTR-022","No",21,"Salary","Salary",80,0,80,NA,2023-02-01,2023-02-16
+"Store F",604,12368,"Emma Davis","ED002","Manager","Store Manager","EXTR-022","No",21,"Salary","Salary",80,0,80,NA,2023-01-16,2023-01-31
+"Store G",701,12369,"Lucas Wilson","LW001","Cashier","Part-time Cashier","EXTR-023","No",11,"Hourly","Hourly",56,8,64,0.5,2023-01-01,2023-01-16
+"Store G",701,12369,"Lucas Wilson","LW001","Cashier","Part-time Cashier","EXTR-023","No",11,"Hourly","Hourly",58,6,64,0.5,2023-01-16,2023-01-31
+"Store G",701,12369,"Lucas Wilson","LW001","Cashier","Part-time Cashier","EXTR-023","No",11,"Hourly","Hourly",61,3,64,0.5,2023-02-01,2023-02-16
+"Store G",702,12370,"Olivia Johnson","OJ001","Sales Associate","PT Sales","EXTR-024","No",12.5,"Hourly","Hourly",64,8,72,0.5,2023-01-01,2023-01-16
+"Store G",702,12370,"Olivia Johnson","OJ001","Sales Associate","PT Sales","EXTR-024","No",12.5,"Hourly","Hourly",63,9,72,0.5,2023-01-16,2023-01-31
+"Store G",702,12370,"Olivia Johnson","OJ001","Sales Associate","PT Sales","EXTR-024","No",12.5,"Hourly","Hourly",58,14,72,0.5,2023-02-01,2023-02-16
+"Store G",703,12371,"Liam Davis","LD001","Stock Clerk","Part-time Stock Clerk","EXTR-025","No",10,"Hourly","Hourly",61,3,64,0.5,2023-01-01,2023-01-16
+"Store G",703,12371,"Liam Davis","LD001","Stock Clerk","Part-time Stock Clerk","EXTR-025","No",10,"Hourly","Hourly",62,2,64,0.5,2023-01-16,2023-01-31
+"Store G",703,12371,"Liam Davis","LD001","Stock Clerk","Part-time Stock Clerk","EXTR-025","No",10,"Hourly","Hourly",59,4,63,NA,2023-02-01,2023-02-16
