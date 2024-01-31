@@ -1,6 +1,7 @@
 import streamlit as st
 import pandas as pd
 import matplotlib.pyplot as plt
+from matplotlib.patches import Patch
 
 data_clean = pd.read_csv('data/fake_data_clean2.csv')
 
@@ -11,6 +12,14 @@ st.set_page_config(
 )
 
 
+def intro():
+    st.markdown('## Data Demos')
+
+    st.markdown("""
+Select a data demo from the drop down menu to the left!
+    """)
+
+
 def data_conversion():
     st.markdown("## Data Conversion")
 
@@ -19,7 +28,7 @@ def data_conversion():
 
 def data_viz():    
     st.markdown("## Data Visualization")
-    tab1, tab2 = st.tabs(['Plot 1','Plot 2'])
+    tab1, tab2 = st.tabs(['Pay Period Hours','Store Employees'])
 
     with tab1:
         data_viz = (
@@ -43,7 +52,7 @@ def data_viz():
         # Move legend outside plot
         plt.legend(bbox_to_anchor=(1.02, 1), loc='upper left', borderaxespad=0)
         plt.title('With % OT Hours',fontsize=10)
-        plt.suptitle('Average Hours Worked by all Employees per Pay Period',x=.46,y=.95)
+        plt.suptitle('Average Hours Worked by all Employees per Pay Period',x=.52,y=.95,size=15)
         plt.tight_layout()
 
         # Add text labels
@@ -77,13 +86,26 @@ def data_viz():
         for ax, category in zip(axs, categories):
             # Select Employee type and fill in 0s if a store does not have any of that employee type
             sub_df = (anomalies[anomalies['Description'] == category]
-                    .set_index('Store').reindex(stores).fillna(value={'EmployeeName':0}).ffill().reset_index())
+                      .set_index('Store').reindex(stores)
+                      .fillna(value={'EmployeeName':0}).ffill().reset_index())
             # Create sublplot
-            sub_df.plot(x='Store', y='EmployeeName', kind='bar', ax=ax, title=category, 
+            # ax.tick_params(which='both',labelbottom=False)
+            sub_df.plot(x='Store', y='EmployeeName', kind='bar', ax=ax, title=category,     
                         color=[colors[x] for x in sub_df['Store']],ylim=(0,10),legend=False,xlabel='')
 
-        plt.suptitle('Number of Employees per Position per Store')
+        # Rotate x-axis tick labels for the bottom row subplots
+        for ax in axs[-2:]:  # Selects the last two axes (bottom row) for rotation
+            ax.tick_params(axis='x', labelrotation=45)
+
+        plt.suptitle('Number of Employees per Position per Store',size=15)
+        # plt.tight_layout(rect=[0, 0, .95, 0.95])
         plt.tight_layout()
+
+        legend_elements = [Patch(facecolor=col, label=cat) for col, cat in zip(colors.values(), colors.keys())]
+        # fig.legend(bbox_to_anchor=(-.025, .75),handles=legend_elements, borderaxespad=0)
+        # fig.legend(handles=legend_elements,ncol=len(colors),# fontsize='medium',
+        #            handlelength=.5, handletextpad=0.5, columnspacing=1.25,
+        #            loc='lower center',bbox_to_anchor=(.5,.86),borderaxespad=0)
 
         with st.container(border=True):
             st.pyplot(fig)
@@ -136,6 +158,7 @@ def anomalies():
 
 #%% OUTPUT
 page_names_to_funcs = {
+    "Select a demo":intro,
     "Data Conversion": data_conversion,
     "Data Visualization":data_viz,
     "Data Summary":summary_stats,
@@ -143,5 +166,5 @@ page_names_to_funcs = {
 }
 
 
-demo_name = st.sidebar.selectbox("Choose a demo", page_names_to_funcs.keys())
+demo_name = st.sidebar.selectbox("Data Demos", page_names_to_funcs.keys())
 page_names_to_funcs[demo_name]()
